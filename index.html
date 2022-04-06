@@ -50,11 +50,15 @@
           </div>
         </div>
       </div>
-      <i class="fas fa-angle-left change-background fa-2x"></i>
-      <i class="fas fa-angle-right change-background fa-2x"></i>
+      <button class="left">
+        <i class="fas fa-angle-left change-background fa-2x"></i>
+      </button>
+      <button class="right">
+        <i class="fas fa-angle-right change-background fa-2x"></i>
+      </button>
       <ul class="bullets">
         <li></li>
-        <li class="active"></li>
+        <li class="active" id="active"></li>
         <li></li>
       </ul>
     </div>
@@ -220,6 +224,7 @@
       </div>
     </div>
     <div class="stats">
+      <img src="/images/stats.png" alt="">
       <div class="container">
         <div class="box">
           <i class="fas fa-mug-hot"></i>
@@ -434,14 +439,26 @@
           <i class="fab fa-facebook-f"></i>
           <i class="fab fa-twitter"></i>
           <i class="fas fa-home"></i>
-          <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/kareemgamaal/" style="color: white;"><i
+              class="fab fa-linkedin"></i></a>
         </div>
-        <p class="copyright">&copy; 2021 <span>Kasper</span> All Right Reserved</p>
+        <div class="disclaimer">
+        </div>
+        <p>
+          Copyright ©
+          <script>
+            document.write(new Date().getFullYear())
+          </script>
+          kareemgamaal
+          <a href="https://github.com/kareemgamal1" target="_blank"><i
+              class="fab fa-github"></i></a>
+        </p>
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="smoothscroll.js">
     </script>
+    <script src="main.js"></script>
   </body>
 
 </html>
