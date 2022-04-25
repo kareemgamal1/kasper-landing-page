@@ -9,8 +9,7 @@ let cnt = 0;
 rightBtn.addEventListener("click", () => {
   switch (cnt) {
     case 0: {
-      landingImg.style.backgroundImage =
-        "url(https://wallpaperforu.com/wp-content/uploads/2021/07/Aesthetic-Black-Wallpaper321366x768.jpg)";
+      landingImg.style.backgroundImage = "url(images/3.webp)";
       cnt = 2;
       lastCircle.classList.add("active");
       midCircle.classList.remove("active");
@@ -24,8 +23,7 @@ rightBtn.addEventListener("click", () => {
       break;
     }
     case 2: {
-      landingImg.style.backgroundImage =
-        "url(https://wallpapercave.com/wp/wp4763059.jpg)";
+      landingImg.style.backgroundImage = "url(images/1.jpg)";
       cnt = 1;
       firstCircle.classList.add("active");
       lastCircle.classList.remove("active");
@@ -38,16 +36,14 @@ rightBtn.addEventListener("click", () => {
 leftBtn.addEventListener("click", () => {
   switch (cnt) {
     case 0: {
-      landingImg.style.backgroundImage =
-        "url(https://wallpapercave.com/wp/wp4763059.jpg)";
+      landingImg.style.backgroundImage = "url(images/1.jpg)";
       cnt = 1;
       firstCircle.classList.add("active");
       midCircle.classList.remove("active");
       break;
     }
     case 1: {
-      landingImg.style.backgroundImage =
-        "url(https://wallpaperforu.com/wp-content/uploads/2021/07/Aesthetic-Black-Wallpaper321366x768.jpg)";
+      landingImg.style.backgroundImage = "url(images/3.webp)";
       cnt = 2;
       lastCircle.classList.add("active");
       firstCircle.classList.remove("active");
@@ -64,9 +60,9 @@ leftBtn.addEventListener("click", () => {
       break;
   }
 });
+
 firstCircle.addEventListener("click", () => {
-  landingImg.style.backgroundImage =
-    "url(https://wallpapercave.com/wp/wp4763059.jpg)";
+  landingImg.style.backgroundImage = "url(images/1.jpg)";
   cnt = 1;
   firstCircle.classList.add("active");
   midCircle.classList.remove("active");
@@ -75,13 +71,12 @@ firstCircle.addEventListener("click", () => {
 midCircle.addEventListener("click", () => {
   landingImg.style.backgroundImage = "url(images/landing.jpg)";
   cnt = 0;
-  firstCircle.classList.remove("add");
+  firstCircle.classList.remove("active");
   midCircle.classList.add("active");
   lastCircle.classList.remove("active");
 });
 lastCircle.addEventListener("click", () => {
-  landingImg.style.backgroundImage =
-    "url(https://wallpaperforu.com/wp-content/uploads/2021/07/Aesthetic-Black-Wallpaper321366x768.jpg)";
+  landingImg.style.backgroundImage = "url(images/3.webp)";
   cnt = 2;
   firstCircle.classList.remove("active");
   midCircle.classList.remove("active");
