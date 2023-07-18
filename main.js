@@ -41,3 +41,14 @@ function autoChange() {
 rightBtn.addEventListener("click", showNextImage);
 leftBtn.addEventListener("click", showPrevImage);
 bullets.forEach((bullet, i) => bullet.addEventListener("click", () => changeImage(i)))
+/*
+TODO:TIME TO SEPERATE AND BUNDLE!!!!
+*/
+
+const portfolio = document.querySelector(".portfolio")
+const buttons = portfolio.querySelectorAll(".shuffle li")
+console.log(buttons)
+buttons.forEach(btn => btn.addEventListener('click', () => {
+  buttons.forEach(otherBtn => otherBtn.classList.remove('active'));
+  btn.classList.toggle('active')
+}))
