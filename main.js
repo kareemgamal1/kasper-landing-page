@@ -5,80 +5,39 @@ const bullets = document.querySelectorAll(".bullets li");
 const firstCircle = bullets[0];
 const midCircle = bullets[1];
 const lastCircle = bullets[2];
-let cnt = 0;
-rightBtn.addEventListener("click", () => {
-  switch (cnt) {
-    case 0: {
-      landingImg.style.backgroundImage = "url(images/3.webp)";
-      cnt = 2;
-      lastCircle.classList.add("active");
-      midCircle.classList.remove("active");
-      break;
-    }
-    case 1: {
-      landingImg.style.backgroundImage = "url(images/landing.jpg)";
-      cnt = 0;
-      midCircle.classList.add("active");
-      firstCircle.classList.remove("active");
-      break;
-    }
-    case 2: {
-      landingImg.style.backgroundImage = "url(images/1.jpg)";
-      cnt = 1;
-      firstCircle.classList.add("active");
-      lastCircle.classList.remove("active");
-      break;
-    }
-    default:
-      break;
-  }
-});
-leftBtn.addEventListener("click", () => {
-  switch (cnt) {
-    case 0: {
-      landingImg.style.backgroundImage = "url(images/1.jpg)";
-      cnt = 1;
-      firstCircle.classList.add("active");
-      midCircle.classList.remove("active");
-      break;
-    }
-    case 1: {
-      landingImg.style.backgroundImage = "url(images/3.webp)";
-      cnt = 2;
-      lastCircle.classList.add("active");
-      firstCircle.classList.remove("active");
-      break;
-    }
-    case 2: {
-      landingImg.style.backgroundImage = "url(images/landing.jpg)";
-      cnt = 0;
-      midCircle.classList.add("active");
-      lastCircle.classList.remove("active");
-      break;
-    }
-    default:
-      break;
-  }
-});
+let imgIndex = 1;
+let imgTimer = setInterval(autoChange, 3000);
 
-firstCircle.addEventListener("click", () => {
-  landingImg.style.backgroundImage = "url(images/1.jpg)";
-  cnt = 1;
-  firstCircle.classList.add("active");
-  midCircle.classList.remove("active");
-  lastCircle.classList.remove("active");
-});
-midCircle.addEventListener("click", () => {
-  landingImg.style.backgroundImage = "url(images/landing.jpg)";
-  cnt = 0;
-  firstCircle.classList.remove("active");
-  midCircle.classList.add("active");
-  lastCircle.classList.remove("active");
-});
-lastCircle.addEventListener("click", () => {
-  landingImg.style.backgroundImage = "url(images/3.webp)";
-  cnt = 2;
-  firstCircle.classList.remove("active");
-  midCircle.classList.remove("active");
-  lastCircle.classList.add("active");
-});
+
+function changeImage(index) {
+  imgIndex = index
+  landingImg.style.backgroundImage = `url(images/${index + 1}.jpg)`
+  bullets.forEach((bullet, i) => bullet.classList.toggle("active", i === index))
+  clearInterval(imgTimer)
+  imgTimer = setInterval(autoChange, 3000);
+}
+
+function showNextImage() {
+  imgIndex = (imgIndex + 1) % 3
+  changeImage(imgIndex)
+}
+
+function showPrevImage() {
+  imgIndex = (imgIndex + 2) % 3
+  changeImage(imgIndex)
+}
+
+function autoChange() {
+  imgIndex++
+  if (imgIndex > 2) {
+    imgIndex = 0
+    changeImage(imgIndex)
+  }
+  else {
+    changeImage(imgIndex)
+  }
+}
+
+rightBtn.addEventListener("click", showNextImage);
+leftBtn.addEventListener("click", showPrevImage);
+bullets.forEach((bullet, i) => bullet.addEventListener("click", () => changeImage(i)))
